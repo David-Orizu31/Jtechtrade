@@ -1,0 +1,1115 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<title> – JTECH</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+
+
+<link rel="shortcut icon" href="img/favicon.ico" />
+
+<link href="css/frontend.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+  <script src="/assets/js/html5shiv.js"></script>
+  <script src="/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    var require = {
+        config: {"site":{"name":"JTECH","cdnurl":"","version":"1.0.1","timezone":"Africa\/Lagos","languages":{"backend":"en","frontend":"en"},"min_amount":"5000","num_amount":"99999999999999","prompt_text":"You can withdraw directly to your bank account","exchange_rate":"1","wallet_address":"1GNY7gFXptca3E2hQMoSAHazuRQaQ88hpy","btc_qrcode":"\/uploads\/20210502\/c50fd18f7a160291c0681b954b6f6df8.png","buybtcrate":"","ngn_rate":"460","ngn_rate_above":"478","bank_account":"2149627724","bank_account_name":"HONVU JOHN UBA","eth_wallet_address":"","eth_qrcode":"","usdt_wallet_address":"0xc960ca98b050c0b2482c5c7c32f857cfe177ad3a","usdt_qrcode":"\/uploads\/20210223\/67273ac8b3b03735392a766aca6a6764.jpg","commission":"0.05","eth_rate":"","eth_rate_above":"","buyethrate":"1","usdt_rate":"","usdt_rate_above":"478","buyusdtrate":"","btc_min_amount":"10","btc_num_amount":"9999999999999","ngn_usd_rate":"484","handfee":"0.0000000"},"upload":{"cdnurl":"","uploadurl":"ajax\/upload","bucket":"local","maxsize":"50mb","mimetype":"jpg,png,bmp,jpeg,gif,zip,rar,xls,xlsx,mp4","multipart":[],"multiple":false,"storage":"local"},"modulename":"index","controllername":"user","actionname":"order_submit","jsname":"frontend\/user","moduleurl":"\/index","language":"en","__PUBLIC__":"\/","__ROOT__":"\/","__CDN__":""}    };
+</script>
+        <link href="css/user.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <style>
+        .dingdingbox {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 15%;
+            width: 350px;
+            border-radius: 10px;
+            background-color: #FFFFFF;
+            z-index: 1;
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 0px 20px #e4e8eb;
+            background-color: #ffffff;
+            -webkit-border-radius: 5px
+        }
+        .dingdingbox .little_dingding {
+            float: right;
+            display: block;
+            margin: 17px;
+        }
+        .dingdingbox .ding_top {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #ECECEF;
+        }
+        .dingdingbox .ding_middle {
+            width: 94%;
+            margin: auto;
+        }
+        .dingdingbox .ding_middle p {
+            font-size: 13px;
+            color: #9A9A9A;
+            margin-bottom: 0px;
+            line-height: 25px;
+        }
+        .dingdingbox .ding_bottom {
+            width: 100%;
+            height: 40px;
+            border-top:  1px solid #ECECEF;
+            line-height: 40px;
+            text-align: center;
+            color: #576B95;
+            cursor: pointer;
+        }
+        .notdata{
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .redcircle {
+            /* display: none; */
+            width: 16px;
+            height: 16px;
+            border-radius: 50px;
+            background-color: red;
+            position: absolute;
+            text-align: center;
+            line-height: 16px;
+            top: 10px;
+            right: 3px;
+            font-size: 10px;
+            color: #FFFFFF !important;
+        }
+        @media screen and (max-width: 510px) {
+            .dingdingbox {
+                right: 3%;
+                width: 94%;
+                z-index: 999;
+                font-size: 12px;
+            }
+
+        }
+    </style>
+    <div class="dingdingbox">
+        <div class="ding_top">
+            <span style="line-height: 40px; float: left; padding-left: 3%;">Notice</span>
+        </div>
+        <div class="ding_middle" style="right: 3%;width: 94%;">
+
+        </div>
+        <div class="ding_bottom">
+            <a href="/index/user/usermsg">Go to the notification center</a>
+        </div>
+    </div>
+    <nav id="mainNav" class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-menu">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                </button>
+                
+                <button type="button" class="navbar-toggle collapsed" >
+                    <a href="javascript:void(0)"><span class="icon icon-6"></span><span>1BTC=$<span id="exchange_rate_mobile">54255.54</span></span></a>
+                </button>
+                <span class="dingding little_dingding navbar-toggle" style="position: relative"><img style="width: 18px; height: 18px; cursor: pointer;"
+                                                            src="img/msg.png" alt=""><div class="redcircle">0</div></span>
+                <a class="navbar-brand page-scroll" href="/"><img src="img/top_logo.png"/></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse-menu">
+                                <div class="user_info">
+                    <div class="icon icon-guanbi-copy"></div>
+                    <img class="head_image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIxMDAiIHdpZHRoPSIxMDAiPjxyZWN0IGZpbGw9InJnYigxNjAsMjAxLDIyOSkiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48L3JlY3Q+PHRleHQgeD0iNTAiIHk9IjUwIiBmb250LXNpemU9IjUwIiB0ZXh0LWNvcHk9ImZhc3QiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHRleHQtcmlnaHRzPSJhZG1pbiIgYWxpZ25tZW50LWJhc2VsaW5lPSJjZW50cmFsIj5TPC90ZXh0Pjwvc3ZnPg==">
+                    <div class="user_detail">
+                        <div class="user_item" >
+                            <a href="/index/user/index.html">
+                                <div style="color:white;">sucrelam@gmail.com</div>
+                                <!--<div style="color:white;">UID:11330</div>-->
+                            </a>
+                        </div>
+                        <a class="icon icon-tuichu" href="/index/user/logout.html"></a>
+                    </div>
+                </div>
+                                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/index/user/order_submit.html">Cryptocurrency</a></li>
+                    <li><a href="/index/user/card_submit.html">GIFT CARDS</a></li>
+                    <!---->
+                    <!--<li><a href="/index/wallet/withdraw.html">Balance</a></li>-->
+                    <!---->
+                    <!---->
+                    <!--<li><a href="/index/wallet/wallet.html">Bitcoin Balance</a></li>-->
+                    <!---->
+                    <li><a href="/index/news/index.html">NEWS</a></li>
+                    <li><a href="javascript:;" class="dingding" style="position: relative">
+                        <img src="img/msg.png" width="16" height="16" alt=""><div class="redcircle"></div>
+                                        <li><a href="/index/user/index.html"><span class="fa fa-user"></span></a></li>
+                   <li><a href="/index/user/index.html" style="display: flex;align-items: center"><span class="icon icon-6"></span><span>1BTC=$<span id="exchange_rate">54255.54</span></span></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+        <main class="content" style="padding: 0">
+            <link rel="stylesheet" href="css/order_submit.css">
+<link rel="stylesheet" href="css/iconfont.css">
+<link rel="stylesheet" type="text/css" href="css/kefu_default.css">
+<style>
+    .table_area tbody tr td span.success {
+        background-color: #07c160;
+    }
+
+    .table_area tbody tr td span.success:after {
+        content: "success";
+    }
+
+    .table_area tbody tr td span.cancel {
+        background-color: #fa5151;
+    }
+
+    .table_area tbody tr td span.cancel:after {
+        content: "cancel";
+    }
+
+    .table_area tbody tr td span.Pending {
+        background-color: #10aeff;
+    }
+
+    .table_area tbody tr td span.Pending:after {
+        content: "Pending";
+    }
+
+    /* 客服对话窗口 */
+    .customerwindow {
+        display: none;
+        width: 47%;
+        height: 724px;
+        background-color: #FFFFFF;
+        position: absolute;
+        top: 30px;
+        left: 25%;
+        border-radius: 6px;
+        box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+        transition: all 0.5s;
+    }
+
+    .customer_top {
+        padding: 15px;
+        border-bottom: 1px solid #E5E5E5;
+    }
+
+    .customer_title {
+        font-size: 15px;
+        color: #000000;
+        font-weight: 200;
+        letter-spacing: 1px;
+        line-height: 26px;
+    }
+
+    .customer_scr {
+        color: rgb(60, 118, 61);
+        font-size: 12px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        line-height: 26px;
+    }
+
+    .customer_close {
+        cursor: pointer;
+        float: right;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 26px;
+        color: #000000;
+        opacity: 0.2;
+        text-shadow: 0 1px 0 #fff;
+    }
+
+    .customer_close:hover {
+        opacity: 1;
+    }
+
+    .dialoguewindow {
+        width: 100%;
+        height: 667px;
+    }
+
+
+
+    @media (max-width: 767px) {
+        .customerwindow {
+            width: 70%;
+            left: 15%;
+        }
+    }
+
+    @media (max-width: 510px) {
+        .chat_image {
+            display: none;
+        }
+
+        .chat_image-little {
+            display: block;
+        }
+    }
+</style>
+<div class="container-fluid nav_bar">
+    <div class="container">
+        <ul class="nav nav-tabs nav_tabs row" id="nav_pc">
+            <li role="presentation" class="active"><a href="javascript:void(0)">ONLINE TRADING</a></li>
+            <li role="presentation"><a href="card_submit.html">GIFTCARD</a></li>
+            <li role="presentation"><a href="trading_center.html">TRANSACTION HISTORY</a></li>
+
+        </ul>
+        <ul class="nav nav-tabs nav_tabs nav_tabs_mobile row" id="nav_mobile">
+            <li role="presentation" class="active nav_show"><a href="javascript:void(0)">ONLINE TRADING</a>
+                <div class="icon icon-arrow-down-bold-copy"></div>
+            </li>
+            <li role="presentation"><a href="card_submit.html">GIFTCARD</a></li>
+            <li role="presentation"><a href="trading_center.html">TRANSACTION HISTORY</a></li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="middlebox">
+    <div class="bx">
+        <div class="middle_rightbox">
+            <ul class="rightbox_top">
+                <li class="sold"></li>
+                <li class="sell"></li>
+            </ul>
+            <div class="box_bottom">
+                <div class="rightbox_bottom soldbox" style="display: none">
+                    <div class="crpyt">
+                        <div class="crpyt_title">
+                            Cryptocurrency
+                        </div>
+                        <ul class="crpyt_type">
+                            <li class="BTC" id="BTC">
+                                BTC
+                            </li>
+                            <li class="ETH" id="ETH">
+                                ETH
+                            </li>
+                            <li class="USDT" style="margin-right:0px" id="USDT">
+                                USDT
+                            </li>
+                        </ul>
+                        <div class="proportion">
+                            1 ETH=3373.17USD
+                        </div>
+                    </div>
+                    <div class="pay">
+                        <div class="pay_title">
+                            Want to buy
+                        </div>
+                        <div class="paybox">
+                            <input class="gift_card_select account_int_one" id="bitcoin_numbers" autocomplete="off"
+                                   oninput="paynumber(this.value)" autocomplete="off" class="paybox_int" type="text"
+                                   name="bitcoin_numbers" placeholder="0.00">
+                        </div>
+                    </div>
+                    <div class="pay">
+                        <div class="pay_title">
+                            You will pay
+                        </div>
+                        <div class="paybox_payment">
+                            <input type="number" name="amount" readonly class="gift_card_select account_int_two" placeholder="0.00 "
+                                   id="amount">
+                        </div>
+                    </div>
+                    <div class="pay">
+                        <div class="pay_title">
+                            Customer wallet address
+                        </div>
+                        <div class="paybox">
+                            <input name="interest_rate" class="gift_card_select account_int_three"
+                                   placeholder="Enter your wallet" value="" id="interest_rate">
+                        </div>
+                    </div>
+                    <!--<div class="pay">-->
+                    <!--<div class="pay_title">-->
+                    <!--PAYMENT METHOD-->
+                    <!--</div>-->
+                    <!--<div class="methodbox">-->
+                    <!--<img class="method_img" src="/assets/img/bankcard.jpg" alt="">-->
+                    <!--<span class="method_span">BANK CARD</span>-->
+                    <!--<div class="card_number" name="cardnumber"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="pay_btn">
+                        BUY
+                    </div>
+                </div>
+                <div class="rightbox_bottom sellbox" id="gift_card_area">
+                    <div class="crpyt">
+                        <div class="crpyt_title">
+                            Cryptocurrency
+                        </div>
+                        <ul class="crpyt_type">
+                            <li class="BTC" id="BTC">
+                                BTC
+                            </li>
+                            <!--<li class="ETH" id="ETH">-->
+                            <!--    ETH-->
+                            <!--</li>-->
+                            <li class="USDT" style="margin-right: 0px;" id="USDT">
+                                USDT
+                            </li>
+                        </ul>
+                        <div class="proportion">
+                            1 BTC=54255.54USD
+                        </div>
+                    </div>
+                    <form target="iframe" name="bitcoin_form" class="gift_card_form bitcoins_form">
+                        <div class="pay">
+                            <label class="pay_title" style="font-weight:100; margin-bottom: 0px;"
+                                   for="bitcoin_number">WHAT’S THE <span class="types">BTC</span>
+                                VALUE (USD)?</label>
+                            <div class="paybox" style="margin-top:7px;">
+                                <input type="number" name="bitcoin_number" oninput="getBitcoinPrice(this.value)"
+                                       autocomplete="off" class="gift_card_select account_int_four" placeholder="USD"
+                                       id="bitcoin_number">
+                            </div>
+                            <div id="number_tips" style="color:#666"><span class="types">BTC</span> value cannot be less
+                                than <span class="numbers">50</span>$</div>
+                        </div>
+                        <input type="hidden" name="btc_rate" id="btc_rate" value="" />
+                        <div class="pay">
+                            <label class="pay_title" style="font-weight:100; margin-bottom: 0px;"
+                                   for="amount">AMOUNT</label>
+                            <div class="paybox" style="margin-top:7px;">
+                                <input type="number" name="amounts" readonly class="gift_card_select account_int_five" placeholder="BTC "
+                                       id="amounts">
+                            </div>
+                        </div>
+                        <div class="pay">
+                            <label class="pay_title" style="font-weight:100; margin-bottom: 0px;"
+                                   for="interest_rate">Rate</label>
+                            <div class="paybox" style="margin-top:7px;">
+
+                                <input type="number" name="interest_rates" readonly class="gift_card_select account_int_six"
+                                       placeholder="₦" value="478" id="interest_rates">
+                            </div>
+                        </div>
+                        <div class="pay">
+                            <label class="pay_title" style="font-weight:100; margin-bottom: 0px;" for="pay_you">WE WILL
+                                PAY YOU</label>
+                            <div class="paybox" style="margin-top:7px;">
+
+                                <input type="number" name="pay_you" readonly title="" class="gift_card_select account_int_seven"
+                                       placeholder="₦" id="pay_you">
+                            </div>
+                        </div>
+                        <div class="gift_card_submit">
+                            <label style="opacity: 0;">
+                                <input name="agreement" id="agreement" checked="true" type="checkbox">
+                                <span>I have read and agree to the</span>
+                                <a class="agreement" href="javascript:;">《Terms and Agreement》</a>
+                            </label>
+                            <butto type="button" style="cursor: pointer;" class="sell_btn" onclick="next()">
+                                CONFIRM</button>
+                        </div>
+                    </form>
+                    <iframe id="iframe" name="iframe" style="display:none;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="ngsrate" style="padding-top: 20px;">
+            <div class="value_one">
+                <div class="value_onetop">
+                    Sell BTC
+                </div>
+                <div class="value_onebottom">
+                    ₦478/$
+                </div>
+            </div>
+            <div class="value_one">
+                <div class="value_onetop">
+                    Buy BTC
+                </div>
+                <div class="value_onebottom">
+                    ₦/$
+                </div>
+            </div>
+        </div>
+        <div class="middle_leftbox">
+            <div class="about">
+                About bitcoin
+            </div>
+            <div class="write">
+                The concept of bitcoin was first put forward by Nakamoto in 2008,
+                according to his ideas Design and release the open source software
+                and construct the P2P network on it. Bitcoin is a form of P2P Digital
+                currency. Point to point transmission means a decentralized payment
+                system。
+            </div>
+            <div class="point">
+
+            </div>
+            <div class="value">
+
+                <div class="value_one">
+                    <div class="value_onetop">
+                        TIME OF ISSUE
+                    </div>
+                    <div class="value_onebottom">
+                        2008-10-31
+                    </div>
+                </div>
+                <div class="value_two">
+                    <div class="value_twotop">
+                        TOTAL MARKET VALUE
+                    </div>
+                    <div class="value_twobottom">
+                        35,273.94
+                    </div>
+                </div>
+                <div class="value_three">
+                    <div class="value_threetop">
+                        HISTORY
+                    </div>
+                    <div class="value_threebottom">
+                        371,223.50
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 银行卡弹窗 -->
+<div class="bank_box">
+    <div class="bank_box_top">
+        Bank Name
+        <span class="bank_x"></span>
+    </div>
+    <div class="bank_box_bottom">
+        <div class="bank_box_bottombox">
+            <span style="float: left;">Bank Acct Number </span>
+            <span style="float: right;">2149627724</span>
+        </div>
+        <div class="bank_box_bottombox">
+            <span style="float: left;">Bank Acct Name</span>
+            <span style="float: right;">HONVU JOHN UBA</span>
+        </div>
+        <div class="bank_btn">
+            CONFIRM
+        </div>
+    </div>
+</div>
+
+
+<!-- 订单提交 -->
+<div class="mask"></div>
+<div class="orders_submit_page">
+    <div class="header">
+        <div class="title"></div>
+        <div class="icon icon-guanbi"></div>
+    </div>
+    <div class="content">
+        <iframe width="100%" height="360px" frameborder="0" scrolling="0" src="../component/bitcoin_confirm.html"
+                frameborder="0"></iframe>
+    </div>
+</div>
+
+
+<script src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/layer.js"></script>
+<script type="text/javascript" src="js/kefu.js"></script>
+<script>
+
+    let deg = 0;
+    $(function () {
+        $('.nav_tabs_mobile .nav_show').siblings().slideUp('fast');
+        $('.nav_tabs_mobile .nav_show').click(function () {
+            deg += 180;
+            $(this).find('.icon').css('transform', 'rotateX(' + deg + 'deg)');
+            $(this).siblings().slideToggle('fast');
+        })
+    })
+    function gochat(server_id, type) {
+        var group = 2;
+        if (type == 'BITCOIN') {
+            group = 3
+        }
+        window.location.href = "/index/user/chat.html?server_id=" + server_id + "&group=" + group + "&orderchat=chat";
+    }
+    /**
+     * 设置iframe高度
+     */
+    function getHeight(height) {
+        $('#gift_card').height(height + 20);
+    }
+    function chat(server_id, data) {
+        KeFu.initialize(document.domain, 'index', function () {
+            KeFu.toggle_window('show');// 打开窗口
+            setTimeout(function () {
+                KeFu.sendMessage('Hello, I submitted an order, please handle it for me as soon as possible', 0);
+                var html = 'types=' + data.type + '#id=' + data.id + '#price=' + data.price + '#status=' + data.status + '#btn_num=' + data.btn_num + '#server_id=' + data.server_id + '#subject=' + data.subject + '#image=' + data.image + '#note=' + data.note + '#category=' + data.category + '#';
+                KeFu.sendMessage(html, 5);
+            }, 2000)
+        }, server_id);
+    }
+    /**
+     * iframe跳转
+     */
+    function navi(url, id) {
+        if (id == 0) {
+            $('.orders_submit_page .title').text('BITCOIN TRANSACTIONS')
+        } else {
+            $('.orders_submit_page .title').text('GIFT CARDS FOR SALE');
+        }
+        let pageUrl = '../component/' + url + '.html';
+        let html = '<iframe id="gift_card" width="100%" frameborder="0" scrolling="no" class="comp_area" src="' + pageUrl + '"></iframe>';
+        $('.orders_submit_page .content').html(html);
+        showMask();
+    }
+
+    function showMask() {
+        $('.orders_submit_page').show();
+        $('.mask').show();
+        document.body.style.position = 'relative';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function hideMask() {
+        $('.orders_submit_page').hide();
+        $('.mask').hide();
+        document.body.style.position = 'static';
+        document.body.style.overflow = 'scroll';
+        sessionStorage.clear();
+    }
+
+    $('.icon-guanbi').click(function () {
+        hideMask();
+    })
+
+    $('.chat_image').click(function () {
+        $('.customerwindow').css({ "display": "block" })
+    })
+    $('.customer_close').click(function () {
+        $('.customerwindow').css({ "display": "none" })
+    })
+
+
+
+
+
+    $(".sold").click(function () {
+
+        $(".soldbox").hide();
+        $(".sellbox").show();
+        $(".rightbox_top").css({ "background-image": "url(img/sell.png)" })
+    })
+    $(".sell").click(function () {
+        $(".soldbox").show();
+        $(".sellbox").hide();
+        $(".rightbox_top").css({ "background-image": "url(img/sold.png)" })
+    })
+    $("body").click(function (e) {
+        if (!$(e.target).closest(".country,.common").length) {
+            $(".common").hide();
+            $(".name").hide();
+            $(".country").show()
+        }
+    });
+    $(".crpyt_type li").each(function (index) {
+        $(this).click(function (e) {
+            $(this).addClass("type_color").siblings().removeClass("type_color");
+        })
+    })
+    var names = '';
+    var pay_number;
+    $(".sell").click(function () {
+        names = "";
+        console.log(names);
+        $(".account_int_four").val("");
+        $(".account_int_five").val("");
+        $(".account_int_six").val("");
+        $(".account_int_seven").val("");
+        $(".sellbox").children(".crpyt").children(".crpyt_type").children().removeClass("type_color");
+    })
+    $(".sold").click(function () {
+        names = "";
+        console.log(names);
+        $(".account_int_one").val("");
+        $(".account_int_two").val("");
+        $(".account_int_three").val("");
+        $(".soldbox").children(".crpyt").children(".crpyt_type").children().removeClass("type_color");
+    })
+    $(".sellbox").children(".crpyt").children(".crpyt_type").children(".USDT").click(function () {
+        console.log(1);
+        $(".numbers").html("500");
+    })
+    $(".sellbox").children(".crpyt").children(".crpyt_type").children(".BTC").click(function () {
+        $(".numbers").html("50");
+    })
+    //buy
+    $(".crpyt_type").children().click(function () {
+        names = $(this).attr("id");
+        var text = '';
+        if (names == 'BTC') {
+            text = '1 ' + names + '=' + 54255.54 + 'USD'
+        } else if (names == 'ETH') {
+            text = '1 ' + names + '=' + 3373.17 + 'USD'
+        } else {
+            text = '1 ' + names + '=' + 1 + 'USD'
+        }
+        $('#bitcoin_numbers').val('');
+        $('#amount').val('');
+        $('#bitcoin_number').val('');
+        $('#amounts').val('');
+        $('#pay_you').val('');
+        $('.proportion').text(text)
+        $("#amounts").attr('placeholder', names);
+        $('.types').text(names)
+    })
+
+    $('.gift_card_select').click(function () {
+        if (names = names) {
+
+        } else (
+            layer.msg('Please select the currency first')
+        )
+    })
+    $('#bitcoin_numbers').bind('input propertychange', function () {
+        pay_number = $(this).val();
+    })
+    function paynumber(number) {
+        var prams;
+        if (number > 0) {
+            prams = {
+                coin_value: parseFloat(number),
+                type: names,
+                sub_type: 'sub_price'
+            }
+            $.ajax({
+                url: "/index/index/subbuybtc.html",
+                type: 'POST',
+                data: prams,
+                success(res) {
+                    console.log(res)
+                    if (res.code) {
+                        $('.card_number').text(res.data.bank_number)
+                        $('#amount').val(res.data.price);
+                    } else {
+                        $('#bitcoin_numbers').val('');
+                        $('#amount').val('');
+                        layer.alert(res.msg, {
+                            icon: 2,
+                            title: 'information',
+                            btn: ['confirm']
+                        }, function () {
+                            if (res.url == '/index/user/account.html') {
+                                window.location.href = "/index/user/account.html";
+                            } else {
+                                layer.closeAll()
+                            }
+                        });
+                        return false;
+                    }
+
+                }//Are you ready to experience this system?
+            })
+        } else {
+            $('#amount').val('');
+        }
+    };
+    // sell
+    $('.agreement').click(function () {
+        layer.open({
+            type: 2,
+            title: '《Terms and Agreement》',
+            shadeClose: false,
+            shade: false,
+            maxmin: false, //开启最大化最小化按钮
+            area: ['90%', '90%'],
+            content: "/index/index/agreement.html"
+        });
+    })
+    window.onload = function () {
+        let height = $('#gift_card_area').height();
+        parent.getHeight(height);
+        let data = JSON.parse(sessionStorage.getItem('bitcoin'))
+        if (data)
+            initData(data);
+    }
+
+    function initData(data) {
+        $('#bitcoin_number').val(data.value);
+        $('#amounts').val(data.amounts);
+        $('#interest_rates').val(data.rate);
+        $('#pay_you').val(data.paYou);
+        $('#btc_rate').val(data.btc_rate);
+    }
+
+    $(function () {
+        $('#bitcoin_number').focus();
+    })
+
+    function next() {
+        let bitcoin = {};
+        bitcoin.card_value = this.bitcoin_form.bitcoin_number.value;
+        bitcoin.amount = this.bitcoin_form.amounts.value;
+        bitcoin.rate = this.bitcoin_form.interest_rates.value;
+        bitcoin.paYou = this.bitcoin_form.pay_you.value;
+        bitcoin.btc_rate = this.bitcoin_form.btc_rate.value;
+        bitcoin.name = names;
+        let agreement;
+
+        if ($("#agreement").prop("checked")) {
+            agreement = true;
+        } else {
+            agreement = false;
+        }
+        if (bitcoin.card_value > 0 && bitcoin.amount != '' && bitcoin.rate != '' && bitcoin.paYou != ''
+            && agreement) {
+            sessionStorage.setItem('bitcoin', JSON.stringify(bitcoin));
+            parent.navi('bitcoin_confirm', 0);
+        } else if (bitcoin.card_value <= 0) {
+            alert('card_value cannot be less than zero')
+        } else if (!agreement) {
+            alert('Please check user agreement');
+        } else {
+            alert('The input cannot be left blank');
+        }
+    }
+
+    function getBitcoinPrice(amounts) {
+        if(names == ''){
+            layer.msg('Please select the currency first')
+            return;
+        }
+        if (names == "BTC") {
+            if (amounts && amounts >= 50) {
+                $("#number_tips").css('color', 'green')
+                $.ajax({
+                    url: "/index/index/getbtcprice.html",
+                    type: 'POST',
+                    data: {
+                        usd_value: parseFloat(amounts),
+                        type: names
+                    },
+                    success(res) {
+                        if (res.code) {
+                            let data = res.data;
+                            $('#amounts').val(data.value);
+                            $('#pay_you').val(data.btc_price);
+                            $('#btc_rate').val(data.rate);
+                            $('#interest_rates').val(data.ngn_rate);
+                        } else {
+                            $('#bitcoin_number').val('');
+                            $('#amounts').val('');
+                            $('#pay_you').val('');
+                            layer.alert(res.msg, {
+                                icon: 2,
+                                title: 'information',
+                                btn: ['confirm']
+                            });
+                            return false;
+                        }
+                    }
+                })
+            } else {
+                $("#number_tips").css('color', 'red')
+                $('#amounts').val('');
+                $('#pay_you').val('');
+            }
+        } else {
+            if (amounts && amounts >= 500) {
+                $("#number_tips").css('color', 'green')
+                $.ajax({
+                    url: "/index/index/getbtcprice.html",
+                    type: 'POST',
+                    data: {
+                        usd_value: parseFloat(amounts),
+                        type: names
+                    },
+                    success(res) {
+                        if (res.code) {
+                            let data = res.data;
+                            $('#amounts').val(data.value);
+                            $('#pay_you').val(data.btc_price);
+                            $('#btc_rate').val(data.rate);
+                            $('#interest_rates').val(data.ngn_rate);
+                        } else {
+                            $('#bitcoin_number').val('');
+                            $('#amounts').val('');
+                            $('#pay_you').val('');
+                            layer.alert(res.msg, {
+                                icon: 2,
+                                title: 'information',
+                                btn: ['confirm']
+                            });
+                            return false;
+                        }
+
+                    }
+                })
+            } else {
+                $("#number_tips").css('color', 'red')
+                $('#amounts').val('');
+                $('#pay_you').val('');
+            }
+        }
+
+    }
+
+    //银行卡弹窗
+    $('.pay_btn').click(function () {
+        var amount = $('#bitcoin_numbers').val();
+        var account = $('.account_int').val()
+        if (amount == '' || amount < 0) {
+            layer.msg('Purchase quantity cannot be empty or less than 0')
+            return;
+        }
+        if (account == '') {
+            layer.msg('Account cannot be empty')
+            return;
+        }
+        $(".bank_box").show();
+    })
+    $('.bank_x').click(function () {
+        $(".bank_box").hide();
+    })
+    $('.bank_btn').click(function () {
+
+        var amount = $('#bitcoin_numbers').val();
+        var account = $('.account_int').val()
+        if (amount == '' || amount < 0) {
+            layer.msg('Purchase quantity cannot be empty or less than 0')
+            return;
+        }
+        if (account == '') {
+            layer.msg('Account cannot be empty')
+            return;
+        }
+        let pull_prams = {
+            coin_value: amount,
+            type: names,
+            account: account,
+            sub_type: "sub_order"
+        }
+        $.ajax({
+            url: "/index/index/subbuybtc.html",
+            type: 'POST',
+            data: pull_prams,
+            traditional: true,
+            dataType: 'json',
+            success(res) {
+                $(".bank_box").hide();
+                $('#bitcoin_numbers').val('');
+                $('#amount').val('');
+                $('.account_int').val('')
+                if (res.code) {
+                    if (!KeFu.fixed_csr) {
+                        KeFu.initialize(document.domain, 'index', function () {
+                            KeFu.toggle_window('show');// 打开窗口
+                            setTimeout(function () {
+                                KeFu.sendMessage('Hello, I submitted an order, please handle it for me as soon as possible', 0);
+                                var html = 'types=' + res.data.type + '#id=' + res.data.id + '#price=' + res.data.price + '#status=' + res.data.status + '#btn_num=' + res.data.btn_num + '#server_id=' + res.data.server_id + '#subject=' + res.data.subject + '#image=' + res.data.image + '#note=' + res.data.note + '#category=' + res.data.category + '#';
+                                KeFu.sendMessage(html, 5);
+                            }, 2000)
+                        }, res.data.server_id);
+                    } else {
+                        KeFu.toggle_window('show');// 打开窗口
+                    }
+
+                    // 参数一为在线客服所在网站的域名(启动Workerman服务的网站的域名)
+                    // 参数二为模块名,站外直接填写index
+                    // 参数三为初始化完成后的回调方法
+                    // 参数四为指定客服，可在此处填写客服代表的后台账户id
+                } else {
+                    layer.alert(res.msg, {
+                        icon: 2,
+                        title: 'information',
+                        btn: ['confirm']
+                    });
+                    return false;
+                }
+            }
+        })
+    })
+
+</script>
+        </main>
+
+    <footer id="footer">
+        <div class="container footer_area">
+            <ul class="footer_content">
+                <li><img class="bottom_image" src="img/bottom_logo.png"></li>
+                <li><a href="javascript:void(0)">&copy;2020 jtechtrade.com</a></li>
+              	<li><a href="javascript:void(0)">(+234)09031260196</a></li>
+              	<li><a href="javascript:void(0)">info@jtechtrade.com</a></li>
+              	<li><a href="javascript:void(0)">FESTAC TOWN LAGOS</a></li>
+            </ul>
+            <ul class="footer_content">
+                <li><a class="title" href="javascript:void(0)">ON</a></li>
+                <li><a href="/index/aboutus/index.html">About us</a></li>
+                <li><a href="/index/news/index.html">Common Problem</a></li>
+            </ul>
+            <ul class="footer_content">
+                <li><a class="title" href="javascript:void(0)">LAW AND PRIVACY</a></li>
+
+                <li><a href="/index/agreement/terms.html">Terms Of Service</a></li>
+                <li><a href="/index/agreement/privacy.html">Privacy policy</a></li>
+                <li><a href="/index/agreement/disclaimer.html">Disclaimer</a></li>
+            </ul>
+            <ul class="footer_content">
+                <li><a class="title" href="javascript:void(0)">SERVICE</a></li>
+                <li><a href="javascript:void(0)">Membership Plan</a></li>
+                <li><a href="javascript:void(0)">Rate calculator</a></li>
+                <li><a href="/index/notice/index.html">Announcement</a></li>
+            </ul>
+            <ul class="footer_content">
+                <li><a class="title" href="javascript:void(0)">STAND BY</a></li>
+                <!--<li><a href="/index/aboutus/index.html">Help Center</a></li>-->
+                <li><a href="/index/user/chat.html">ContactCustomer Service</a></li>
+                <li>
+                    <a class="icon icon-ins" title="Instagram: jtechglobalofficial" href="https://instagram.com/jtechtrade?igshid=8tdvxcuaoizu"></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <footer id="footer_mobile">
+        <div class="footer_mobile_case">
+            <div class="logo_mobile">
+                <img class="bottom_logo_mobile" src="img/bottom_logo.png">
+                <a href="javascript:void(0)">&copy;2020 jtechtrade.com</a>
+            </div>
+            <div class="footer_mobile_content">
+                <div class="menu_title" id="dropdownMenu1">
+                    <div>ON</div>
+                    <span class="caret"></span>
+                </div>
+                <ul class="dropdownMenu1">
+                    <li><a href="/index/aboutus/index.html">About</a></li>
+                    <li><a href="/index/news/index.html">Common Problem</a></li>
+                </ul>
+                <div class="menu_title">
+                    <div><a href="/index/aboutus/index.html">About us</a></div>
+                </div>
+                <div class="menu_title">
+                    <div>Common Problem</div>
+                </div>
+                <div class="menu_title">
+                    <div>Jobs</div>
+                </div>
+                <div class="menu_title" id="dropdownMenu2">
+                    <div>LAW AND PRIVACY</div>
+                    <span class="caret"></span>
+                </div>
+                <ul class="dropdownMenu2">
+                    <li><a href="/index/agreement/terms.html">Terms of Service</a></li>
+                    <li><a href="/index/agreement/privacy.html">Privacy policy</a></li>
+                    <li><a href="/index/agreement/disclaimer.html">Disclaimer</a></li>
+                </ul>
+                <div class="menu_title" id="dropdownMenu3">
+                    <div>SERVICE</div>
+                    <span class="caret"></span>
+                </div>
+
+                <ul class="dropdownMenu3">
+                    <li><a href="javascript:void(0)">Membership Plan</a></li>
+                    <li><a href="javascript:void(0)">Rate calculator</a></li>
+                    <li><a href="/index/notice/index.html">Announcement</a></li>
+                </ul>
+                <div class="menu_title" id="dropdownMenu4">
+                    <div>Contact us</div>
+                    <span class="caret"></span>
+                </div>
+                <ul class="dropdownMenu4">
+                    <!--<li><a href="/index/aboutus/index.html">Help Center</a></li>-->
+                    <li><a href="javascript:void(0)">(+234)09031260196</a></li>
+                  	<li><a href="javascript:void(0)">info@jtechtrade.com</a></li>
+                  	<li><a href="javascript:void(0)">FESTAC TOWN LAGOS</a></li>
+                </ul>
+                <div class="menu_title">
+                    <div>
+                        <a class="icon icon-ins" title="Instagram: jtechglobalofficial" href="https://instagram.com/jtechtrade?igshid=8tdvxcuaoizu"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script src="js/require.min.js" data-main="/assets/js/require-frontend.min.js?v=1.0.1"></script>
+
+    </body>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script>
+        getUserMsg()
+        setInterval(function(){
+                $.ajax('/index/index/getbtc.html',{
+                success(res){
+                    $("#exchange_rate").text(res.data);
+                    $("#exchange_rate_mobile").text(res.data)
+                }
+            })
+        },10000)
+        function getUserMsg(){
+            $.ajax('/index/index/getusermsg.html',{
+                success(res){
+                    if(res.code){
+                        var html = '';
+                        var data = res.data.msg;
+                        for (var i  = 0;i<data.length;i++){
+                            html+= ' <p style="color: #101010; line-height: 40px;">'+data[i].title+'</p>\n' +
+                                '            <p><a href="'+data[i].url+'?msg='+data[i].id+'">'+data[i].content+'</a></p>\n' +
+                                '            <p>'+data[i].create_time+'</p>';
+                        }
+                        $('.ding_middle').html(html);
+                        if(res.data.count_msg>0){
+                            $('.redcircle').text(res.data.count_msg);
+                            $('.redcircle').show()
+                        }
+                    }else {
+                        var nthml = '<div class="notdata">No notice</div>'
+                        $('.ding_middle').html(nthml);
+                    }
+                }
+            })
+        }
+        setInterval(function () {
+            getUserMsg()
+        },5000)
+
+        $('.menu_title').click(function (e) {
+            let id = e.currentTarget.id;
+            if(id)
+                $('.'+id).toggle();
+        })
+        $('.navbar-collapse .user_info .icon-guanbi-copy').click(function () {
+            $('.navbar-collapse').attr('class','navbar-collapse collapse');
+        })
+
+        // 点击丁丁
+
+        $(".dingding").click(function () {
+            $(".dingdingbox").toggle()
+        })
+        $("body").click(function (e) {
+            if (!$(e.target).closest(".dingding,.dingdingbox").length) {
+                $(".dingdingbox").hide();
+            }
+        });
+    </script>
+
+</html>
