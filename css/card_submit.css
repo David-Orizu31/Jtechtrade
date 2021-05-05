@@ -1,0 +1,372 @@
+
+html,body{
+    font-size: 62.5%;
+    margin: 0;
+}
+a{
+    color: #1d89fc;
+    text-decoration: none;
+}
+a:hover,a:active{
+    color: #0a568c;
+}
+.icon-guanbi {
+    background: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20width%3D%27100%25%27%20height%3D%27100%25%27%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20id%3D%22icon-guanbi%22%20viewBox%3D%220%200%201024%201024%22%3E%3Cpath%20d%3D%22M566.97558594%20521.09667969L856.8828125%20231.18945312c14.63378906-14.63378906%2014.63378906-38.75976563%200-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469%200L512%20466.51660156%20222.09277344%20176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469%200l-1.58203125%201.58203125c-15.02929688%2014.63378906-15.02929688%2038.75976563%200%2053.39355469l289.90722656%20289.90722656L167.1171875%20811.00390625c-14.63378906%2014.63378906-14.63378906%2038.75976563%200%2053.39355469l1.58203125%201.58203125c14.63378906%2014.63378906%2038.75976563%2014.63378906%2053.39355469%200L512%20576.07226563%20801.90722656%20865.97949219c14.63378906%2014.63378906%2038.75976563%2014.63378906%2053.39355469%200l1.58203125-1.58203125c14.63378906-14.63378906%2014.63378906-38.75976563%200-53.39355469L566.97558594%20521.09667969z%22%20fill%3D%22%23363F4D%22%20%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
+}
+
+.icon-guanbi-copy {
+    background: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20width%3D%27100%25%27%20height%3D%27100%25%27%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20id%3D%22icon-guanbi-copy%22%20viewBox%3D%220%200%201024%201024%22%3E%3Cpath%20d%3D%22M566.97558594%20521.09667969L856.8828125%20231.18945312c14.63378906-14.63378906%2014.63378906-38.75976563%200-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469%200L512%20466.51660156%20222.09277344%20176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469%200l-1.58203125%201.58203125c-15.02929688%2014.63378906-15.02929688%2038.75976563%200%2053.39355469l289.90722656%20289.90722656L167.1171875%20811.00390625c-14.63378906%2014.63378906-14.63378906%2038.75976563%200%2053.39355469l1.58203125%201.58203125c14.63378906%2014.63378906%2038.75976563%2014.63378906%2053.39355469%200L512%20576.07226563%20801.90722656%20865.97949219c14.63378906%2014.63378906%2038.75976563%2014.63378906%2053.39355469%200l1.58203125-1.58203125c14.63378906-14.63378906%2014.63378906-38.75976563%200-53.39355469L566.97558594%20521.09667969z%22%20fill%3D%22%23ffffff%22%20%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
+}
+.giftcard-fluid {
+    width: 436px;
+    height: 880px;
+    float: right;
+    margin-top: 70px;
+    background-color: #FFFFFF;
+}
+.icon{
+    width: 1.6rem;
+    height: 1.6rem;
+    background-repeat: no-repeat!important;
+    background-size: 100%!important;;
+    background-position: center!important;;
+}
+.steps_block .step01, .steps_block .step02{
+    display: flex;
+    align-items: center;
+}
+.steps_block .step01 .num, .steps_block .step02 .num{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #1d89fc;
+    color: #fff;
+    margin-right: .4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.steps_confirm .step01 .num{
+    background-color: #259857;
+}
+.steps_block .step01 .title, .steps_block .step02 .title{
+    color: #5f5e5e;
+    font-size: 1.2rem;
+}
+.steps_block .line{
+    height: 0.1rem;
+    background-color: #e3f1ff;
+    flex: 1;
+    margin: 0 1rem;
+}
+/* step_block--end */
+.card_list{
+    height: 10rem;
+    border-radius: 0.2rem;
+    border: solid 0.1rem #e3f1ff;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 1rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.card_list .card_case{
+    width: 34%;
+    margin: 0 1rem 2rem;
+    height: 10rem;
+    border: solid 0.1rem #d9d9d9;
+    border-radius: .6rem;
+    padding: .4rem;
+}
+.card_list .card_title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card_list .card_case .card_id{
+    margin-left: 1rem;
+
+}
+.card_list .card_case .card_image{
+    margin: 1rem auto;
+    width: 82%;
+    height: 6rem;
+    display: block;
+}
+.card_list .card_case .card_detail .title{
+
+}
+.input_bottom_tips{
+    color: red;
+    display: none;
+    font-size: 1.2rem;
+}
+.input_bottom_tips.gren{
+    color: green;
+}
+.gift_card_select{
+    width: 100%;
+    height: 4rem;
+    padding: 0 1rem;
+}
+.gift_card_submit{
+    justify-content: space-between;
+    align-items: center;
+}
+.gift_card_submit label{
+    font-size: 12px;
+}
+.gift_card_submit button{
+    background-color: #459fff;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 49px;
+    border-radius: 5px;
+    line-height: 49px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* confirmCardPage */
+.gist_card_detail{
+    width: 100%;
+    background-color: #f7f9fc;
+    margin: 2.2rem auto 2.5rem;
+    padding: 2.1rem;
+    box-sizing: border-box;
+}
+.gist_card_detail .card_detail_area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gist_card_detail .card_detail_area:not(:last-child){
+    margin-bottom: 2.5rem;
+}
+.gist_card_detail .card_detail_area .title{
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    color: #333333;
+}
+.gist_card_detail .card_detail_area .item{
+    font-size: 1.4rem;
+    color: #666666;
+    display: flex;
+    align-items: center;
+}
+.gist_card_detail .card_detail_area .item .card_icon{
+    width: 2rem;
+}
+.buttons{
+    padding: 2.5rem 1rem;
+    border-top: solid 0.1rem #f2f6fa;
+    display: flex;
+    justify-content: flex-end;
+}
+.buttons button{
+    background-color: #459fff;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    height: 4rem;
+    margin-left: 2rem;
+}
+.buttons button:first-child{
+    background-color: #fff;
+    border: solid #459fff 0.1rem;
+    font-size: 1.4rem;
+    color: #666;
+}
+.container-fluid {
+    width: 100%;
+}
+/**
+ * result_area
+ */
+.result_area{
+    padding: 3.5rem 3rem;
+    text-align: center;
+}
+.result_area .title{
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+.result_area .upload_area{
+    cursor: pointer;
+    width: 24.5rem;
+    height: 14.9rem;
+    background-color: #fcfcfc;
+    border-radius: 1.3rem;
+    border: dashed 0.1rem #d9d9d9;
+    margin: 1rem auto 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input_image{
+    width: 26rem;
+    height: 16rem;
+    margin-top: 1rem;
+}
+.result_area .upload_area .upload_icon{
+    width: 4.4rem;
+    height: 3.2rem;
+}
+.result_area .upload_area .tips{
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    color: #a8a8a8;
+}
+
+.upload_button{
+    padding: 2.5rem 1rem;
+    border-top: solid 0.1rem #f2f6fa;
+    display: flex;
+    justify-content: flex-end;
+}
+.upload_button button{
+    background-color: #459fff;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    height: 4rem;
+    margin-left: 2rem;
+    font-size: 1.4rem;
+}
+
+/*bitcoins_submit*/
+.bitcoins_form .tips{
+    font-size: 1.2rem;
+    color: #666;
+}
+/*bitcoins_result*/
+.bitcoins_result{
+    margin: 2.2rem auto;
+    text-align: center;
+}
+.bitcoins_result .title{
+    font-size: 1.2rem;
+    color: #000;
+}
+.bitcoins_result .title span{
+    font-size: 1.6rem;
+    color: #1d89fc;
+}
+.bitcoins_result .codes{
+    width: 45.9rem;
+    height: 4.8rem;
+    background-color: #edf0f7;
+    border-radius: 0.5rem;
+    margin: 2.2rem auto 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bitcoins_result .codes .codes_detail{
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    color: #464951;
+    width: 80%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.bitcoins_result .codes .icon-copy{
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-left: 3rem;
+    cursor: pointer;
+}
+.bitcoins_result .QR_code{
+    width: 17.4rem;
+    height: 17.4rem;
+}
+
+@media (max-width: 499px) {
+    html,body{
+        font-size: 50%;
+    }
+    .gift_card_submit{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 200px;
+    }
+    .gift_card_submit button{
+        background-color: #459fff;
+        color: #ffffff;
+        outline: none;
+        border: none;
+        width: 100%;
+        height: 6rem;
+        border-radius: .4rem;
+    }
+    .gist_card_detail{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .gist_card_detail .card_detail_area .title{
+        width: 20rem;
+    }
+    .gist_card_detail .card_detail_area .item{
+        text-align: right;
+    }
+    .buttons{
+        padding: 2.5rem 1rem;
+        border-top: solid 0.1rem #f2f6fa;
+        display: flex;
+        justify-content: space-between;
+    }
+    .buttons button{
+        background-color: #459fff;
+        color: #ffffff;
+        outline: none;
+        border: none;
+        width: 40%;
+        height: 4rem;
+        margin-left: 0;
+    }
+    .upload_button{
+        padding: 2.5rem 1rem;
+        border-top: solid 0.1rem #f2f6fa;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .upload_button button{
+        background-color: #459fff;
+        color: #ffffff;
+        outline: none;
+        border: none;
+        width: 100%;
+        height: 4rem;
+        margin-left: 2rem;
+        font-size: 1.4rem;
+    }
+    .card_list .card_case{
+        width: 35%;
+        height: 10rem;
+        border: solid 0.1rem #d9d9d9;
+        border-radius: .6rem;
+        margin: 0 1rem 1rem 0;
+    }
+    .bitcoins_result .codes{
+        width: 100%
+    }
+    .bitcoins_result .codes .icon-copy{
+        margin-left: 3rem;
+        cursor: pointer;
+    }
+    .giftcard-fluid {
+        width: 100%;
+        height: 880px;
+        float: none;
+        margin-top: 0px;
+        background-color: #FFFFFF;
+    }
+}

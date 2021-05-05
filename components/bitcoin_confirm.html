@@ -1,0 +1,56 @@
+
+<link rel="stylesheet" href="/assets/css/card_submit.css">
+<link href="/assets/css/iconfont.css" rel="stylesheet">
+<div class="container-fluid" id="confirm_card_area">
+    <div class="steps_block steps_confirm">
+        <div class="step01">
+            <div class="num"><span class="icon icon-ziyuan"></span></div>
+            <div class="title">Create Order</div>
+        </div>
+        <div class="line"></div>
+        <div class="step02">
+            <div class="num">2</div>
+            <div class="title">Confirm Order</div>
+        </div>
+    </div>
+    <div class="gist_card_detail">
+        <div class="card_detail_area">
+            <div class="title">NUMBER OF BITCOINS</div>
+            <div class="item" id="bitcoin_num"></div>
+        </div>
+        <div class="card_detail_area">
+            <div class="title">Amount</div>
+            <div class="item" id="amount"></div>
+        </div>
+        <div class="card_detail_area">
+            <div class="title">INTEREST RATE</div>
+            <div class="item" id="rate"></div>
+        </div>
+        <div class="card_detail_area">
+            <div class="title">WE WILL PAY YOU</div>
+            <div class="item" id="pay_you"></div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="bg-white" onclick="parent.navi('bitcoin_submit',0)">RETURN</button>
+        <button onclick="parent.navi('bitcoin_result',0)">CONFIRM</button>
+    </div>
+</div>
+<script src="/assets/js/jquery.min.js"></script>
+<script>
+    window.onload = function () {
+        let height = $('#confirm_card_area').height();
+        parent.getHeight(height);
+    }
+
+    $(function () {
+        let bitcoin = JSON.parse(sessionStorage.getItem('bitcoin'));
+        if(bitcoin != null){
+            $('#bitcoin_num').text(bitcoin.card_value);
+            $('#amount').text(bitcoin.amount);
+            $('#rate').text(bitcoin.rate);
+            $('#pay_you').text(bitcoin.paYou);
+        }
+
+    })
+</script>

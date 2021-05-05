@@ -11,6 +11,7 @@
 <link rel="shortcut icon" href="img/favicon.ico" />
 
 <link href="css/frontend.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/card_submit.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -421,10 +422,64 @@
                                 <span>I have read and agree to the</span>
                                 <a class="agreement" href="javascript:;">《Terms and Agreement》</a>
                             </label>
-                            <butto type="button" style="cursor: pointer;" class="sell_btn" onclick="next()">
+                            <button type="button" style="cursor: pointer;" class="sell_btn" data-toggle="modal" data-target="#myModal">
                                 CONFIRM</button>
                         </div>
                     </form>
+
+                    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="border-radius: 5px !important;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: black !important; font-size: 18px !important;">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel" style="color: black !important; font-size: 18px !important;">BITCOIN TRANSACTIONS</h4>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid" id="confirm_card_area">
+                <div class="steps_block steps_confirm">
+                    <div class="step01">
+                        <div class="num"><span class="icon icon-ziyuan"></span></div>
+                        <div class="title">Create Order</div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step02">
+                        <div class="num">2</div>
+                        <div class="title">Confirm Order</div>
+                    </div>
+                </div>
+                <div class="gist_card_detail">
+                    <div class="card_detail_area">
+                        <div class="title">NUMBER OF BITCOINS</div>
+                        <div class="item" id="bitcoin_num">1000</div>
+                    </div>
+                    <div class="card_detail_area">
+                        <div class="title">Amount</div>
+                        <div class="item" id="amount">0.01811288</div>
+                    </div>
+                    <div class="card_detail_area">
+                        <div class="title">INTEREST RATE</div>
+                        <div class="item" id="rate">484</div>
+                    </div>
+                    <div class="card_detail_area">
+                        <div class="title">WE WILL PAY YOU</div>
+                        <div class="item" id="pay_you">484000.00</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="bg-white" data-dismiss="modal" style="padding: 5px;">RETURN</button>
+                    <button onclick="parent.navi('bitcoin_result',0)" style="font-size: 14px !important; padding: 5px;">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
                     <iframe id="iframe" name="iframe" style="display:none;"></iframe>
                 </div>
             </div>
@@ -1052,6 +1107,8 @@
         <script src="js/require.min.js" data-main="/assets/js/require-frontend.min.js?v=1.0.1"></script>
 
     </body>
+    <!-- Bootstrap 3.3.6 js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <script>
@@ -1110,6 +1167,22 @@
                 $(".dingdingbox").hide();
             }
         });
+
+        window.onload = function () {
+        let height = $('#confirm_card_area').height();
+        parent.getHeight(height);
+    }
+
+    $(function () {
+        let bitcoin = JSON.parse(sessionStorage.getItem('bitcoin'));
+        if(bitcoin != null){
+            $('#bitcoin_num').text(bitcoin.card_value);
+            $('#amount').text(bitcoin.amount);
+            $('#rate').text(bitcoin.rate);
+            $('#pay_you').text(bitcoin.paYou);
+        }
+
+    })
     </script>
 
 </html>
