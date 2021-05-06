@@ -13,6 +13,7 @@
 <link href="css/frontend.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/card_submit.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/layui.css">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 <!--[if lt IE 9]>
@@ -468,7 +469,7 @@
                 </div>
                 <div class="buttons">
                     <button class="bg-white" data-dismiss="modal" style="padding: 5px;">RETURN</button>
-                    <button onclick="parent.navi('bitcoin_result',0)" style="font-size: 14px !important; padding: 5px;">CONFIRM</button>
+                    <button type="button" data-toggle="modal" data-target="#confirm_modal" style="font-size: 14px !important; padding: 5px;">CONFIRM</button>
                 </div>
             </div>
         </div>
@@ -478,6 +479,40 @@
         </div> -->
       </div>
     </div>
+  </div>
+
+  <div class="modal fade" id="confirm_modal" tabindex="-1" role="dialog" aria-labelledby="confirm_modallabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="border-radius: 5px !important;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: black !important; font-size: 18px !important;">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel" style="color: black !important; font-size: 18px !important;">BITCOIN TRANSACTIONS</h4>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid" id="bitcoin_result_area">
+                <div class="bitcoins_result">
+                    <div class="title">Please send <span class="btc"> 0.00172262BTC</span> to the wallet address below</div>
+                    <div style="padding-top: 10px; font-size: 15px !important;">Hello. make sure you provide screenshot and hash ID of the coin sent.</div>
+                    <br>
+                    <div class="qrcode">
+                        <div class="codes">
+                            <input type="text" id="codes" readonly="" class="codes_detail" value="19JRXMR9tLXKgxoCA7oDBWf3Ne7GZqNogw">
+                            <div class="icon icon-copy" id="copy_btn" onclick="copy()"></div>
+                        </div>
+                     <img src="img/c50fd18f7a160291c0681b954b6f6df8.png" alt="scan-qr-code" class="img-responsive" style="width: 17.4rem; height: 17.4rem;   margin: 0 auto;">
+                    </div>
+                </div>
+                <div class="upload_button">
+                    <button onclick="bitcoin_sub()" style="padding: 0px 5px;">Proceed trade</button>
+                </div>
+            </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
   </div>
 
                     <iframe id="iframe" name="iframe" style="display:none;"></iframe>
@@ -514,7 +549,6 @@
                 system。
             </div>
             <div class="point">
-
             </div>
             <div class="value">
 
@@ -585,6 +619,82 @@
 
 <script src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/layer.js"></script>
+<script>
+        $(function () {
+        let data = JSON.parse(sessionStorage.getItem('bitcoin'));
+        var text = '';
+        var qrcode = '';
+        if(data.name == 'BTC'){
+            text = '19JRXMR9tLXKgxoCA7oDBWf3Ne7GZqNogw';
+            qrcode = '/uploads/20210502/c50fd18f7a160291c0681b954b6f6df8.png'
+        }else if(data.name == 'ETH'){
+            text = '';
+            qrcode = ''
+        }else{
+            text = '0xc960ca98b050c0b2482c5c7c32f857cfe177ad3a';
+            qrcode = '/uploads/20210223/67273ac8b3b03735392a766aca6a6764.jpg'
+        }
+        var html = '<div class="codes">\n' +
+            '            <input type="text" id="codes" readonly class="codes_detail" value="'+text+'">\n' +
+            '            <div class="icon icon-copy" id="copy_btn" onclick="copy()"></div>\n' +
+            '        </div>\n' +
+            '        <img class="QR_code" src="'+qrcode+'"/>'
+        $('.qrcode').html(html);
+        window.onload = function () {
+            let height = $('#bitcoin_result_area').height();
+            $('.btc').text(data.amount+data.name)
+            parent.getHeight(height);
+        }
+    })
+
+
+
+    function copy() {
+        let code = document.getElementById("codes");
+        code.select(); // 选择对象
+        document.execCommand("Copy"); // 执行浏览器复制命令
+    }
+    function bitcoin_sub() {
+        let data = JSON.parse(sessionStorage.getItem('bitcoin'));
+        $.ajax('/index/index/subbtcinfo.html',{
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                btc_value: parseFloat(data.amount),
+                usd_value:parseFloat(data.card_value),
+                rate:parseFloat(data.rate),
+                btc_rate:parseFloat(data.btc_rate),
+                name:data.name
+            },
+            success(res){
+                sessionStorage.removeItem('bitcoin');
+
+                if (res.code) {
+                    parent.hideMask();
+                    parent.chat(res.data.server_id,res.data);
+                }else {
+                    layer.msg(res.msg)
+                    setTimeout(function () {
+                        parent.hideMask();
+                    },2000)
+
+                }
+            }
+        })
+    }
+
+    $(function () {
+        // $.ajax('/index/index/getbtcconfig.html',{
+        //     method: 'POST',
+        //     success(res){
+        //         if (res.code == 1) {
+        //             $('#codes').val(res.data.wallet_address);
+        //             $('.QR_code').attr('src',res.data.btc_qrcode);
+        //         }
+        //     }
+        // })
+    })
+</script>
 <script type="text/javascript" src="js/kefu.js"></script>
 <script>
 
