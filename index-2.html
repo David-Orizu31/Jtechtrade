@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,11 +8,9 @@
 
 
 <link rel="shortcut icon" href="img/favicon.ico" />
-
-<link href="css/frontend.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/card_submit.css">
+<link href="css/frontend.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/layui.css">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 <!--[if lt IE 9]>
@@ -22,7 +19,7 @@
 <![endif]-->
 <script type="text/javascript">
     var require = {
-        config: {"site":{"name":"JTECH","cdnurl":"","version":"1.0.1","timezone":"Africa\/Lagos","languages":{"backend":"en","frontend":"en"},"min_amount":"5000","num_amount":"99999999999999","prompt_text":"You can withdraw directly to your bank account","exchange_rate":"1","wallet_address":"1GNY7gFXptca3E2hQMoSAHazuRQaQ88hpy","btc_qrcode":"\/uploads\/20210502\/c50fd18f7a160291c0681b954b6f6df8.png","buybtcrate":"","ngn_rate":"460","ngn_rate_above":"478","bank_account":"2149627724","bank_account_name":"HONVU JOHN UBA","eth_wallet_address":"","eth_qrcode":"","usdt_wallet_address":"0xc960ca98b050c0b2482c5c7c32f857cfe177ad3a","usdt_qrcode":"\/uploads\/20210223\/67273ac8b3b03735392a766aca6a6764.jpg","commission":"0.05","eth_rate":"","eth_rate_above":"","buyethrate":"1","usdt_rate":"","usdt_rate_above":"478","buyusdtrate":"","btc_min_amount":"10","btc_num_amount":"9999999999999","ngn_usd_rate":"484","handfee":"0.0000000"},"upload":{"cdnurl":"","uploadurl":"ajax\/upload","bucket":"local","maxsize":"50mb","mimetype":"jpg,png,bmp,jpeg,gif,zip,rar,xls,xlsx,mp4","multipart":[],"multiple":false,"storage":"local"},"modulename":"index","controllername":"user","actionname":"order_submit","jsname":"frontend\/user","moduleurl":"\/index","language":"en","__PUBLIC__":"\/","__ROOT__":"\/","__CDN__":""}    };
+        config: {"site":{"name":"JTECH","cdnurl":"","version":"1.0.1","timezone":"Africa\/Lagos","languages":{"backend":"en","frontend":"en"},"min_amount":"5000","num_amount":"99999999999999","prompt_text":"You can withdraw directly to your bank account","exchange_rate":"1","wallet_address":"1GNY7gFXptca3E2hQMoSAHazuRQaQ88hpy","btc_qrcode":"\/uploads\/20210502\/c50fd18f7a160291c0681b954b6f6df8.png","buybtcrate":"","ngn_rate":"460","ngn_rate_above":"478","bank_account":"2149627724","bank_account_name":"HONVU JOHN UBA","eth_wallet_address":"","eth_qrcode":"","usdt_wallet_address":"0xc960ca98b050c0b2482c5c7c32f857cfe177ad3a","usdt_qrcode":"\/uploads\/20210223\/67273ac8b3b03735392a766aca6a6764.jpg","commission":"0.05","eth_rate":"","eth_rate_above":"","buyethrate":"1","usdt_rate":"","usdt_rate_above":"478","buyusdtrate":"","btc_min_amount":"10","btc_num_amount":"9999999999999","ngn_usd_rate":"484","handfee":"0.0000000"},"upload":{"cdnurl":"","uploadurl":"ajax\/upload","bucket":"local","maxsize":"50mb","mimetype":"jpg,png,bmp,jpeg,gif,zip,rar,xls,xlsx,mp4","multipart":[],"multiple":false,"storage":"local"},"modulename":"index","controllername":"user","actionname":"order_submit","jsname":"frontend\/user","moduleurl":"\/index","language":"en","PUBLIC":"\/","ROOT":"\/","CDN":""}    };
 </script>
         <link href="css/user.css" rel="stylesheet">
     </head>
@@ -120,7 +117,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-menu">
                     <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
                 </button>
-                
+
                 <button type="button" class="navbar-toggle collapsed" >
                     <a href="javascript:void(0)"><span class="icon icon-6"></span><span>1BTC=$<span id="exchange_rate_mobile">54255.54</span></span></a>
                 </button>
@@ -307,9 +304,9 @@
                             <li class="ETH" id="ETH">
                                 ETH
                             </li>
-                            <li class="USDT" style="margin-right:0px" id="USDT">
+                            <!-- <li class="USDT" style="margin-right:0px" id="USDT">
                                 USDT
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="proportion">
                             1 ETH=3373.17USD
@@ -330,7 +327,7 @@
                             You will pay
                         </div>
                         <div class="paybox_payment">
-                            <input type="number" name="amount" readonly class="gift_card_select account_int_two" placeholder="0.00 "
+                            <input type="number" name="amount"   class="gift_card_select account_int_two" placeholder="0.00 "
                                    id="amount">
                         </div>
                     </div>
@@ -369,13 +366,16 @@
                             <!--<li class="ETH" id="ETH">-->
                             <!--    ETH-->
                             <!--</li>-->
-                            <li class="USDT" style="margin-right: 0px;" id="USDT">
+                            <!-- <li class="USDT" style="margin-right: 0px;" id="USDT">
                                 USDT
-                            </li>
+                            </li> -->
                         </ul>
-                        <div class="proportion">
-                            1 BTC=54255.54USD
-                        </div>
+                        <!-- <div class="proportion" id="exchange_ratedown">
+                        1 BTC=54255.54USD
+                         </div> -->
+                         <div style="font-size:10px">
+                       <span style="color:red"> NOTE:</span>After you input what your BTC is valued at. Do not proceed until what we will pay you comes up.
+                         </div>
                     </div>
                     <form target="iframe" name="bitcoin_form" class="gift_card_form bitcoins_form">
                         <div class="pay">
@@ -383,7 +383,7 @@
                                    for="bitcoin_number">WHAT’S THE <span class="types">BTC</span>
                                 VALUE (USD)?</label>
                             <div class="paybox" style="margin-top:7px;">
-                                <input type="number" name="bitcoin_number" oninput="getBitcoinPrice(this.value)"
+                                <input type="number" name="bitcoin_number"  oninput="getBitcoinPrice(this.value)"
                                        autocomplete="off" class="gift_card_select account_int_four" placeholder="USD"
                                        id="bitcoin_number">
                             </div>
@@ -395,7 +395,7 @@
                             <label class="pay_title" style="font-weight:100; margin-bottom: 0px;"
                                    for="amount">AMOUNT</label>
                             <div class="paybox" style="margin-top:7px;">
-                                <input type="number" name="amounts" readonly class="gift_card_select account_int_five" placeholder="BTC "
+                                <input type="number" name="amounts" readonly  class="gift_card_select account_int_five" placeholder="BTC "
                                        id="amounts">
                             </div>
                         </div>
@@ -404,8 +404,8 @@
                                    for="interest_rate">Rate</label>
                             <div class="paybox" style="margin-top:7px;">
 
-                                <input type="number" name="interest_rates" readonly class="gift_card_select account_int_six"
-                                       placeholder="₦" value="478" id="interest_rates">
+                                <input type="text" name="interest_rates"  class="gift_card_select account_int_six"
+                                       placeholder="₦" readonly value="478" id="interest_rates">
                             </div>
                         </div>
                         <div class="pay">
@@ -413,8 +413,8 @@
                                 PAY YOU</label>
                             <div class="paybox" style="margin-top:7px;">
 
-                                <input type="number" name="pay_you" readonly title="" class="gift_card_select account_int_seven"
-                                       placeholder="₦" id="pay_you">
+                                <input type="number" name="pay_you"  title="" readonly class="gift_card_select account_int_seven"
+                                       placeholder="₦" id="pay_you" >
                             </div>
                         </div>
                         <div class="gift_card_submit">
@@ -423,99 +423,99 @@
                                 <span>I have read and agree to the</span>
                                 <a class="agreement" href="javascript:;">《Terms and Agreement》</a>
                             </label>
-                            <button type="button" style="cursor: pointer;" class="sell_btn" data-toggle="modal" data-target="#myModal">
+                            <button type="button" id="button1" onclick="" style="cursor: pointer;" data-toggle="modal" class="sell_btn" data-target="#confirm_modal">
                                 CONFIRM</button>
                         </div>
                     </form>
+                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-                    <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" style="border-radius: 5px !important;">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: black !important; font-size: 18px !important;">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" style="color: black !important; font-size: 18px !important;">BITCOIN TRANSACTIONS</h4>
-        </div>
-        <div class="modal-body">
-            <div class="container-fluid" id="confirm_card_area">
-                <div class="steps_block steps_confirm">
-                    <div class="step01">
-                        <div class="num"><span class="icon icon-ziyuan"></span></div>
-                        <div class="title">Create Order</div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step02">
-                        <div class="num">2</div>
-                        <div class="title">Confirm Order</div>
-                    </div>
-                </div>
-                <div class="gist_card_detail">
-                    <div class="card_detail_area">
-                        <div class="title">NUMBER OF BITCOINS</div>
-                        <div class="item" id="bitcoin_num">1000</div>
-                    </div>
-                    <div class="card_detail_area">
-                        <div class="title">Amount</div>
-                        <div class="item" id="amount">0.01811288</div>
-                    </div>
-                    <div class="card_detail_area">
-                        <div class="title">INTEREST RATE</div>
-                        <div class="item" id="rate">484</div>
-                    </div>
-                    <div class="card_detail_area">
-                        <div class="title">WE WILL PAY YOU</div>
-                        <div class="item" id="pay_you">484000.00</div>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <button class="bg-white" data-dismiss="modal" style="padding: 5px;">RETURN</button>
-                    <button type="button" data-toggle="modal" data-target="#confirm_modal" style="font-size: 14px !important; padding: 5px;">CONFIRM</button>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
-      </div>
-    </div>
-  </div>
+<script>
 
-  <div class="modal fade" id="confirm_modal" tabindex="-1" role="dialog" aria-labelledby="confirm_modallabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" style="border-radius: 5px !important;">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: black !important; font-size: 18px !important;">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" style="color: black !important; font-size: 18px !important;">BITCOIN TRANSACTIONS</h4>
-        </div>
-        <div class="modal-body">
-            <div class="container-fluid" id="bitcoin_result_area">
-                <div class="bitcoins_result">
-                    <div class="title">Please send <span class="btc"> 0.00172262BTC</span> to the wallet address below</div>
-                    <div style="padding-top: 10px; font-size: 15px !important;">Hello. make sure you provide screenshot and hash ID of the coin sent.</div>
-                    <br>
-                    <div class="qrcode">
-                        <div class="codes">
-                            <input type="text" id="codes" readonly="" class="codes_detail" value="19JRXMR9tLXKgxoCA7oDBWf3Ne7GZqNogw">
-                            <div class="icon icon-copy" id="copy_btn" onclick="copy()"></div>
+$(document).on("click", "#button1", function(){
+
+    var total = document.getElementById('bitcoin_number').value;
+    document.getElementById("btcchange").innerHTML = total;
+
+
+
+});
+</script>
+
+
+                    <div class="modal fade" id="confirm_modal" tabindex="-1" role="dialog" aria-labelledby="confirm_modallabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content" style="border-radius: 5px !important;">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: black !important; font-size: 18px !important;">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel" style="color: black !important; font-size: 18px !important;">BITCOIN TRANSACTIONS</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid" id="bitcoin_result_area">
+                                    <div class="bitcoins_result">
+                                        <div class="title">Please send <span class="btc" id="btcchange"> 0.00172262BTC</span> to the wallet address below</div>
+                                        <div style="padding-top: 10px; font-size: 15px !important;">Hello. make sure you provide screenshot and hash ID of the coin sent.</div>
+                                        <br>
+                                        <div class="qrcode">
+                                            <div class="codes">
+                                                <input type="text" id="codes" readonly="" class="codes_detail" value="1M26bYwtA35id4GjynPYdvQJML51VEtovF">
+                                                <div class="icon icon-copy" id="copy_btn" onclick="copy()"></div>
+                                            </div>
+                                            <script>
+                                                function copy() {
+  var copyText = document.getElementById("codes");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+                                            </script>
+<div class="img-responsive" style="width: 17.4rem; height: 17.4rem;   margin: 0 auto;">
+{!! QrCode::size(250)->generate('1M26bYwtA35id4GjynPYdvQJML51VEtovF'); !!}
+</div>
+
+
+                                         </div>
+                                    </div>
+                                    <div class="upload_button">
+                                    <a href="https://jivo.chat/swVJH5XipA" type="button" class="btn btn-success pay_btn" style="margin-top:60px" data-toggle="modal" data-target="#proceedmodal">Proceed trade</a>
+                                        <!-- <button   style="padding: 0px 5px;">Proceed trade</button> -->
+                                    </div>
+                                </div>
+                            <!-- <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                          </div>
                         </div>
-                     <img src="img/c50fd18f7a160291c0681b954b6f6df8.png" alt="scan-qr-code" class="img-responsive" style="width: 17.4rem; height: 17.4rem;   margin: 0 auto;">
-                    </div>
-                </div>
-                <div class="upload_button">
-                    <button onclick="bitcoin_sub()" style="padding: 0px 5px;">Proceed trade</button>
-                </div>
-            </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
-      </div>
-    </div>
-  </div>
-  </div>
+                      </div>
+                      </div>
 
-  
+                      <div class="modal fade" id="proceedmodal" tabindex="-1" role="dialog" aria-labelledby="proceedmodallabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content proceed-content" style="border-radius: 5px !important; min-height: 600px;">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: black !important; font-size: 18px !important;">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel" style="color: black !important; font-size: 18px !important;">BITCOIN TRANSACTIONS</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h2>You can now proceed your trade</h2>
+                            <!-- <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                          </div>
+                        </div>
+
+                        <style>
+                            @media (max-width:480px) {
+                                .proceed-content {
+                                    min-height: 550px !important;
+                                }
+                            }
+                        </style>
+
+
+                      </div>
+                      </div>
 
                     <iframe id="iframe" name="iframe" style="display:none;"></iframe>
                 </div>
@@ -534,7 +534,7 @@
                 <div class="value_onetop">
                     Buy BTC
                 </div>
-                <div class="value_onebottom">
+                <div class="value_twobottom">
                     ₦/$
                 </div>
             </div>
@@ -551,6 +551,7 @@
                 system。
             </div>
             <div class="point">
+
             </div>
             <div class="value">
 
@@ -621,84 +622,15 @@
 
 <script src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/layer.js"></script>
-<script>
-        $(function () {
-        let data = JSON.parse(sessionStorage.getItem('bitcoin'));
-        var text = '';
-        var qrcode = '';
-        if(data.name == 'BTC'){
-            text = '19JRXMR9tLXKgxoCA7oDBWf3Ne7GZqNogw';
-            qrcode = '/uploads/20210502/c50fd18f7a160291c0681b954b6f6df8.png'
-        }else if(data.name == 'ETH'){
-            text = '';
-            qrcode = ''
-        }else{
-            text = '0xc960ca98b050c0b2482c5c7c32f857cfe177ad3a';
-            qrcode = '/uploads/20210223/67273ac8b3b03735392a766aca6a6764.jpg'
-        }
-        var html = '<div class="codes">\n' +
-            '            <input type="text" id="codes" readonly class="codes_detail" value="'+text+'">\n' +
-            '            <div class="icon icon-copy" id="copy_btn" onclick="copy()"></div>\n' +
-            '        </div>\n' +
-            '        <img class="QR_code" src="'+qrcode+'"/>'
-        $('.qrcode').html(html);
-        window.onload = function () {
-            let height = $('#bitcoin_result_area').height();
-            $('.btc').text(data.amount+data.name)
-            parent.getHeight(height);
-        }
-    })
-
-
-
-    function copy() {
-        let code = document.getElementById("codes");
-        code.select(); // 选择对象
-        document.execCommand("Copy"); // 执行浏览器复制命令
-    }
-    function bitcoin_sub() {
-        let data = JSON.parse(sessionStorage.getItem('bitcoin'));
-        $.ajax('/index/index/subbtcinfo.html',{
-            method: 'POST',
-            dataType: 'json',
-            data: {
-                btc_value: parseFloat(data.amount),
-                usd_value:parseFloat(data.card_value),
-                rate:parseFloat(data.rate),
-                btc_rate:parseFloat(data.btc_rate),
-                name:data.name
-            },
-            success(res){
-                sessionStorage.removeItem('bitcoin');
-
-                if (res.code) {
-                    parent.hideMask();
-                    parent.chat(res.data.server_id,res.data);
-                }else {
-                    layer.msg(res.msg)
-                    setTimeout(function () {
-                        parent.hideMask();
-                    },2000)
-
-                }
-            }
-        })
-    }
-
-    $(function () {
-        // $.ajax('/index/index/getbtcconfig.html',{
-        //     method: 'POST',
-        //     success(res){
-        //         if (res.code == 1) {
-        //             $('#codes').val(res.data.wallet_address);
-        //             $('.QR_code').attr('src',res.data.btc_qrcode);
-        //         }
-        //     }
-        // })
-    })
-</script>
 <script type="text/javascript" src="js/kefu.js"></script>
 <script>
+
+
+
+
+
+
+
 
     let deg = 0;
     $(function () {
@@ -964,21 +896,48 @@
         }
         if (names == "BTC") {
             if (amounts && amounts >= 50) {
+
+
                 $("#number_tips").css('color', 'green')
                 $.ajax({
-                    url: "/index/index/getbtcprice.html",
-                    type: 'POST',
+                    url: "/current/dolls",
+                    type: 'get',
                     data: {
                         usd_value: parseFloat(amounts),
                         type: names
                     },
                     success(res) {
-                        if (res.code) {
-                            let data = res.data;
-                            $('#amounts').val(data.value);
+
+                        // document.getElementById("interest_rates").value =answers;
+                        if (res) {
+                            var inputValue =     document.getElementById("bitcoin_number").value;
+
+                            var answer =     inputValue /  res;
+                            var n = answer.toFixed(9);
+
+                             $('#amounts').val(n);
+
+
+                             var inputnewValue =     document.getElementById("interest_rates").value;
+
+                             var answers =     inputnewValue -  12;
+                             $('#interest_rates').val(answers);
+
+                             var inputnewValuepay =     document.getElementById("bitcoin_number").value;
+
+                             var payyou =     inputnewValuepay *  answers  ;
+
+
+
+                             $('#pay_you').val(payyou.toFixed(2));
+
+
+// console.log(answers)
+
+                             $('#amounts').val(data.value);
                             $('#pay_you').val(data.btc_price);
                             $('#btc_rate').val(data.rate);
-                            $('#interest_rates').val(data.ngn_rate);
+                            // $('#interest_rates').val(answers);
                         } else {
                             $('#bitcoin_number').val('');
                             $('#amounts').val('');
@@ -1001,19 +960,39 @@
             if (amounts && amounts >= 500) {
                 $("#number_tips").css('color', 'green')
                 $.ajax({
-                    url: "/index/index/getbtcprice.html",
-                    type: 'POST',
+                    url: "/current/dolls",
+                    type: 'get',
                     data: {
                         usd_value: parseFloat(amounts),
                         type: names
                     },
                     success(res) {
+                        console.log(res);
                         if (res.code) {
                             let data = res.data;
-                            $('#amounts').val(data.value);
-                            $('#pay_you').val(data.btc_price);
-                            $('#btc_rate').val(data.rate);
-                            $('#interest_rates').val(data.ngn_rate);
+
+                                    var inputValue =     document.getElementById("bitcoin_number").value;
+
+                            var answer =     inputValue /  res;
+                            var n = answer.toFixed(9);
+
+                             $('#amounts').val(n);
+
+
+                             var inputnewValue =     document.getElementById("interest_rates").value;
+
+                             var answers =     inputnewValue -  20;
+                             $('#interest_rates').val(answers);
+
+                             var inputnewValuepay =     document.getElementById("bitcoin_number").value;
+
+                             var payyou =     inputnewValuepay *  answers  ;
+
+
+
+                             $('#pay_you').val(payyou.toFixed(2));
+
+
                         } else {
                             $('#bitcoin_number').val('');
                             $('#amounts').val('');
@@ -1219,23 +1198,28 @@
         <script src="js/require.min.js" data-main="/assets/js/require-frontend.min.js?v=1.0.1"></script>
 
     </body>
-    <!-- Bootstrap 3.3.6 js -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!--Bootstrap js-->
+    <script src="js/bootstrap.min.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <script>
-        getUserMsg()
-        setInterval(function(){
-                $.ajax('/index/index/getbtc.html',{
+
+        // getUserMsg()
+        // setInterval(function(){
+        //         $.ajax('/index/index/getbtc.html',{
+        //         success(res){
+        //             $("#exchange_rate").text(res.data);
+        //             $("#exchange_rate_mobile").text(res.data)
+        //         }
+        //     })
+        // },10000)
+
+        function getUservalue(){
+            $.ajax('/current/value',{
                 success(res){
-                    $("#exchange_rate").text(res.data);
-                    $("#exchange_rate_mobile").text(res.data)
-                }
-            })
-        },10000)
-        function getUserMsg(){
-            $.ajax('/index/index/getusermsg.html',{
-                success(res){
+                    // console.log(res)
+                    document.getElementById("interest_rates").value = res;
+
                     if(res.code){
                         var html = '';
                         var data = res.data.msg;
@@ -1256,9 +1240,72 @@
                 }
             })
         }
-        setInterval(function () {
-            getUserMsg()
-        },5000)
+
+        setTimeout(getUservalue, 1) ;
+
+        function getUserMsgs(){
+            $.ajax('/current/dolls',{
+                success(res){
+                    // console.log(res)
+                    $('span #exchange_rate').html(res);
+                    $('#exchange_ratedown').html(res);
+                    if(res.code){
+                        var html = '';
+                        var data = res.data.msg;
+                        for (var i  = 0;i<data.length;i++){
+                            html+= ' <p style="color: #101010; line-height: 40px;">'+data[i].title+'</p>\n' +
+                                '            <p><a href="'+data[i].url+'?msg='+data[i].id+'">'+data[i].content+'</a></p>\n' +
+                                '            <p>'+data[i].create_time+'</p>';
+                        }
+                        $('.ding_middle').html(html);
+                        if(res.data.count_msg>0){
+                            $('.redcircle').text(res.data.count_msg);
+                            $('.redcircle').show()
+                        }
+                    }else {
+                        var nthml = '<div class="notdata">No notice</div>'
+                        $('.ding_middle').html(nthml);
+                    }
+                }
+            })
+        }
+
+        setTimeout(getUserMsgs, 1) ;
+
+
+
+        function getUserMsg(){
+            $.ajax('/current/naira',{
+                success: function (res){
+                    console.log(res)
+                    $('.ngsrate > .value_one > .value_onebottom').html(res);
+                    if(res.code){
+                        var html = '';
+                        var data = res.data.msg;
+                        for (var i  = 0;i<data.length;i++){
+                            html+= ' <p style="color: #101010; line-height: 40px;">'+data[i].title+'</p>\n' +
+                                '            <p><a href="'+data[i].url+'?msg='+data[i].id+'">'+data[i].content+'</a></p>\n' +
+                                '            <p>'+data[i].create_time+'</p>';
+                        }
+                        $('.ding_middle').html(html);
+                        if(res.data.count_msg>0){
+                            $('.redcircle').text(res.data.count_msg);
+                            $('.redcircle').show()
+                        }
+                    }else {
+                        var nthml = '<div class="notdata">No notice</div>'
+                        $('.ding_middle').html(nthml);
+                    }
+                },error:function(){
+             console.log(data);
+        }
+            })
+        }
+
+        setTimeout(getUserMsg, 1) ;
+        // setInterval()(function () {
+        //     getUserMsg()
+        // },2000)
 
         $('.menu_title').click(function (e) {
             let id = e.currentTarget.id;
@@ -1279,22 +1326,6 @@
                 $(".dingdingbox").hide();
             }
         });
-
-        window.onload = function () {
-        let height = $('#confirm_card_area').height();
-        parent.getHeight(height);
-    }
-
-    $(function () {
-        let bitcoin = JSON.parse(sessionStorage.getItem('bitcoin'));
-        if(bitcoin != null){
-            $('#bitcoin_num').text(bitcoin.card_value);
-            $('#amount').text(bitcoin.amount);
-            $('#rate').text(bitcoin.rate);
-            $('#pay_you').text(bitcoin.paYou);
-        }
-
-    })
     </script>
 
 </html>
